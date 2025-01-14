@@ -1,0 +1,7 @@
+[workspace]
+
+members = [ 
+    "batch-runner",
+    "test-runner",
+    "test-lib",
+]
