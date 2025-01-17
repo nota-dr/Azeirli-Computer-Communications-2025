@@ -1,8 +1,4 @@
-[executable]
 name = "client"
-
-[test-dir]
-name = "testee"
 
 [[tests]]
 name = "Usage1"

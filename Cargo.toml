@@ -2,7 +2,6 @@
 
 members = [ 
     "batch-runner",
-    "test-runner",
     "tests_lib", 
     "assignment2-tester",
 ]

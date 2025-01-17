@@ -26,7 +26,7 @@ pub struct ProcessOutput {
     pub status: ExitStatus,
 }
 
-pub fn compile(input: &str, log_dir: &str) -> &'static str {
+pub fn compile<'a>(input: &'a str, log_dir: &str) -> &'a str {
     let mut args = input.split_whitespace();
     let cmd = args.next().expect("[!] No command found");
     let args: Vec<&str> = args.collect();
@@ -129,17 +129,16 @@ pub fn exec_and_wait(cmd: &str, timeout: time::Duration) -> ProcessOutput {
     }
 }
 
-pub fn run_test_case(args: &str, timeout: time::Duration, name: &str, log_dir: &str) -> Vec<u8>{
-    let output = exec_and_wait(args, timeout);
-    let log_path = env::current_dir().unwrap()
-    .join(log_dir)
-    .join(format!("output_{}.txt", name));
-    
-    let mut f = File::create(&log_path)
-    .expect("Unable to create file");
+pub fn run_assignment(execution_path: &str, args: &str, timeout: time::Duration, name: &str, log_dir: Option<&str>) -> Vec<u8>{
+    let is_execution_path_exists = fs::exists(execution_path)
+    .expect("[!] Error checking for executable!");
 
-    f.write_all(&output.stdout).expect("Unable to write data");
-    f.write_all(&output.stderr).expect("Unable to write data");
+    if !is_execution_path_exists {
+        panic!("[!] File does not exist: {}", execution_path);
+    }
+
+    let cmd = format!("{} {}", execution_path, args);
+    let output = exec_and_wait(&*cmd, timeout);
 
     let status = output.status.code().unwrap();
     if status == Status::Timeout as i32 {
@@ -152,6 +151,18 @@ pub fn run_test_case(args: &str, timeout: time::Duration, name: &str, log_dir: &
 
     if status == Status::Sigsegv as i32 {
         println!("[!] Segmentation Fault occurred");
+    }
+
+    if let Some(dir) = log_dir {
+        let log_path = env::current_dir().unwrap()
+        .join(dir)
+        .join(format!("output - {}.txt", name));
+        
+        let mut f = File::create(&log_path)
+        .expect("Unable to create file");
+
+        f.write_all(&output.stdout).expect("Unable to write data");
+        f.write_all(&output.stderr).expect("Unable to write data");
     }
     
     output.stdout.into_iter().chain(output.stderr.into_iter()).collect::<Vec<u8>>()
