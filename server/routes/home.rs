@@ -1,36 +1,47 @@
 extern crate rocket;
-
 use super::guards::RedirectGuard;
-
+use crate::TokenManager;
 use rocket::fs::NamedFile;
-use rocket::http::Status;
+use rocket::http::{Header, Status};
 use rocket::response::content::RawHtml;
 use rocket::response::Redirect;
-use rocket::State;
+use rocket::{Response, State};
 use std::path::Path;
 use uuid::Uuid;
+use std::sync::{Arc, Mutex};
 
-use crate::TokenManager;
 
 #[get("/")]
-pub async fn index() -> &'static str {
+pub fn index<'r>() ->  &'static str {
     "Welcome to my test server!"
 }
 
-#[get("/meow.png")]
-pub async fn meow() -> Option<NamedFile> {
-    let project_root = env!("CARGO_MANIFEST_DIR");
-    NamedFile::open(Path::new(project_root).join("resources/meow.png"))
-        .await
-        .ok()
+
+#[get("/resources/<file>")]
+pub async fn get_resource_with_path(file: &str) -> Result<NamedFile, Status> {
+    let path = Path::new(rocket::fs::relative!("src"))
+        .join("server")
+        .join("resources")
+        .join(file);
+    NamedFile::open(path).await.map_err(|_| Status::NotFound)
+}
+
+#[get("/resources?<file>")]
+pub async fn get_resource_with_param(file: &str) -> Result<NamedFile, Status> {
+    let path = Path::new(rocket::fs::relative!("src"))
+        .join("server")
+        .join("resources")
+        .join(file);
+    NamedFile::open(path).await.map_err(|_| Status::NotFound)
 }
 
 #[get("/recursive-redirect/<n>")]
 pub async fn recursive_redirect(n: u32, state: &State<TokenManager>) -> Result<Redirect, Status> {
+    println!("Redirecting to /recursive-redirect/{}", n);
     if n == 1 {
         let mut pstate = state.token.lock().unwrap();
         *pstate = Uuid::new_v4().to_string();
-        Ok(Redirect::to(format!("/secret?token={}", *pstate)))
+        Ok(Redirect::to(format!("/secret?_token={}", *pstate)))
     } else if n > 255 {
         Err(Status::BadRequest)
     } else {
@@ -38,8 +49,8 @@ pub async fn recursive_redirect(n: u32, state: &State<TokenManager>) -> Result<R
     }
 }
 
-#[get("/secret?<token>")]
-pub async fn secret(token: &str, _guard: RedirectGuard) -> Result<RawHtml<&'static str>, Status> {
+#[get("/secret?<_token>")]
+pub async fn secret(_token: &str, _guard: RedirectGuard) -> Result<RawHtml<&'static str>, Status> {
     let html_content = r#"
 <!DOCTYPE html>
 <html lang="en">

@@ -2,10 +2,9 @@ use std::fs;
 use std::path::PathBuf;
 
 pub fn dir_has_src_files(path: &PathBuf) -> bool {
-
     let files = match fs::read_dir(path) {
         Ok(files) => files,
-        Err(e) => panic!("[!] Error reading directory: {:?}", e)
+        Err(e) => panic!("[!] Error reading directory: {:?}", e),
     };
 
     for file in files {
@@ -18,5 +17,5 @@ pub fn dir_has_src_files(path: &PathBuf) -> bool {
         }
     }
 
-    return false
+    return false;
 }

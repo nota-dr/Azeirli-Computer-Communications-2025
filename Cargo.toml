@@ -1,7 +1,17 @@
 [workspace]
+resolver = "2"
 
 members = [ 
     "batch-runner",
     "tests_lib", 
-    "assignment2-tester",
+    "assignment2-tester", "assignment3-tester",
 ]
+
+[workspace.metadata]
+backtrace = "full"
+
+[profile.dev]
+debug = true
+
+[profile.release]
+debug = true
