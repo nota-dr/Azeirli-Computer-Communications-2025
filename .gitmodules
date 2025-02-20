@@ -1,4 +1,4 @@
-[submodule "Assignment2-Tester"]
+[submodule "assignment2-tester"]
 	path = Assignment2-Tester
 	url = https://github.com/nota-dr/Assignment2-Tester.git
 [submodule "assignment2-tester"]
