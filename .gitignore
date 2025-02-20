@@ -7,12 +7,14 @@
 # Cargo.lock
 
 /server
+testee/*
 assignments/assignment2/*
 assignments/assignment3/*
 assignments/assignment4/*
 assignments/moss.pl
 
 # !assignments/
+!testee/.gitkeep
 !assignments/assignment2/.gitkeep
 !assignments/assignment3/.gitkeep
 !assignments/assignment4/.gitkeep
