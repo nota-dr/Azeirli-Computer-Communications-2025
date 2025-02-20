@@ -1,0 +1,12 @@
+max_width = 80
+hard_tabs = false
+tab_spaces = 4
+
+struct_lit_width = 30
+struct_variant_width = 40
+
+# fn_params_layout = "Vertical"  # "fn_args_layout" is deprecated
+
+reorder_imports = true  # "merge_imports" is unstable, but this works
+
+use_field_init_shorthand = true  # Keep `{ x }` instead of `{ x: x }`
