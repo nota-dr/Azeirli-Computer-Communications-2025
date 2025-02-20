@@ -6,7 +6,7 @@
 # More information: http://doc.crates.io/guide.html#cargotoml-vs-cargolock
 # Cargo.lock
 
-server
+/server
 assignments/assignment2
 assignments/assignment3
 assignments/assignment4
