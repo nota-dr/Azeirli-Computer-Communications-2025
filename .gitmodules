@@ -10,3 +10,6 @@
 [submodule "tests_lib"]
 	path = tests_lib
 	url = https://github.com/nota-dr/Tests-Lib.git
+[submodule "assignment4-tester"]
+	path = assignment4-tester
+	url = https://github.com/nota-dr/Assignment4-Tester.git
