@@ -43,7 +43,9 @@ name = "assignment2-tester"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "async-trait",
  "axum",
+ "bytes",
  "chrono",
  "hmac",
  "httpc-test",
@@ -190,6 +192,7 @@ dependencies = [
  "anyhow",
  "assignment2-tester",
  "assignment3-tester",
+ "assignment4-tester",
  "bzip2",
  "csv",
  "flate2",
@@ -1764,7 +1767,9 @@ name = "tests_lib"
 version = "0.1.0"
 dependencies = [
  "async-trait",
+ "futures",
  "indexmap",
+ "libc",
  "rand",
  "tokio",
 ]
