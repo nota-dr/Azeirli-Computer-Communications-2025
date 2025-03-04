@@ -2,9 +2,6 @@
 resolver = "2"
 members = ["assignment2-tester", "tests_lib"]
 
-[workspace.dependencies]
-openssl = { version = "0.10", features = ["vendored"] }
-
 [workspace.metadata]
 backtrace = "full"
 
