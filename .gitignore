@@ -2,10 +2,10 @@
 # Exclude build artifacts
 # Ignore everything inside /target
 /target/*
-!/target/debug/
-/target/debug/*
-!/target/debug/assignment2-tester
-!/target/debug/axum_server
+!/target/release/
+/target/release/*
+!/target/release/assignment2-tester
+!/target/release/axum_server
 
 # Remove Cargo.lock from gitignore if creating an executable; leave it for libraries
 # More information: http://doc.crates.io/guide.html#cargotoml-vs-cargolock

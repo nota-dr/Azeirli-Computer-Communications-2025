@@ -1,19 +1,9 @@
 [workspace]
 resolver = "2"
+members = ["assignment2-tester", "tests_lib"]
 
-members = [ 
-    "batch-runner",
-    "tests_lib", 
-    "assignment2-tester",
-    "assignment3-tester", 
-    "assignment4-tester",
-]
-
-exclude = [
-    "assignment3-tester",
-    "assignment4-tester",
-    "batch-runner"
-]
+[workspace.dependencies]
+openssl = { version = "0.10", features = ["vendored"] }
 
 [workspace.metadata]
 backtrace = "full"
