@@ -9,6 +9,12 @@ members = [
     "assignment4-tester",
 ]
 
+exclude = [
+    "assignment3-tester",
+    "assignment4-tester",
+    "batch-runner"
+]
+
 [workspace.metadata]
 backtrace = "full"
 

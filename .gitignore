@@ -6,7 +6,6 @@
 /target/debug/*
 !/target/debug/assignment2-tester
 !/target/debug/axum_server
-!/target/debug/libtests_lib.rlib
 
 # Remove Cargo.lock from gitignore if creating an executable; leave it for libraries
 # More information: http://doc.crates.io/guide.html#cargotoml-vs-cargolock
