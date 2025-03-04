@@ -17,7 +17,7 @@ A collection of automated testers and grading scripts for four exercises in comp
 5. **Place your assignment files**
 - Place your assignment files inside **testee** folder.
 6. **Run the tester**
-- `./target/debug/assignment2-tester`
+- `./target/release/assignment2-tester`
 
 ## Installation and Compilation from Scratch 
 - Only needed if you don't want to run the precompiled binaries.
