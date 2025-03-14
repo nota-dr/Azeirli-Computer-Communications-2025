@@ -2,10 +2,6 @@
 	path = assignment2-tester
 	url = https://github.com/nota-dr/Assignment2-Tester.git
 	branch = master
-[submodule "tests_lib"]
-	path = tests_lib
-	url = https://github.com/nota-dr/Tests-Lib.git
-	branch = master
 [submodule "assignment3-tester"]
 	path = assignment3-tester
 	url = git@github.com:nota-dr/Assignment3-Tester.git
@@ -18,3 +14,6 @@
 	path = batch-runner
 	url = git@github.com:nota-dr/batch-runner.git
 	branch = master
+[submodule "tests_lib"]
+	path = tests_lib
+	url = git@github.com:nota-dr/Tests-Lib.git
