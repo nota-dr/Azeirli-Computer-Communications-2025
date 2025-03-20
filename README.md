@@ -1,4 +1,4 @@
-# Azeirli-Computer-Communications-2025
+# Azrieli-Computer-Communications-2025
 A collection of automated testers and grading scripts for four exercises in computer communications. This repository includes test cases, sample inputs/outputs, and scripts for updating grades and generating reports.
 
 ## Features:
@@ -11,7 +11,7 @@ A collection of automated testers and grading scripts for four exercises in comp
 1. **Open terminal**
 
 2. **Clone the Repository**
-- `git clone --branch assignment4 --recurse-submodules https://github.com/nota-dr/Azeirli-Computer-Communications-2025.git`
+- `git clone --branch assignment4 --recurse-submodules https://github.com/nota-dr/Azrieli-Computer-Communications-2025.git`
 3. **Navigate to the repository directory**
 - `cd Azeirli-Computer-Communications-2025`
 5. **Place your assignment files**
@@ -32,7 +32,7 @@ A collection of automated testers and grading scripts for four exercises in comp
     - `sudo apt install build-essential`
     - `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 2. **Clone the Repository**
-    - `git clone --branch assignment2 --recurse-submodules https://github.com/nota-dr/Azeirli-Computer-Communications-2025.git`
+    - `git clone --branch assignment4 --recurse-submodules https://github.com/nota-dr/Azrieli-Computer-Communications-2025.git`
 3. **Navigate to the repository directory**
 - Navigate to the repository directory:
     - `cd Azeirli-Computer-Communications-2025`
