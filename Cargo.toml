@@ -2,10 +2,7 @@
 resolver = "2"
 
 members = [ 
-    "batch-runner",
     "tests_lib", 
-    "assignment2-tester",
-    "assignment3-tester", 
     "assignment4-tester",
 ]
 
