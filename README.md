@@ -63,3 +63,4 @@ A collection of automated testers and grading scripts for four exercises in comp
       To create the expected output, you can run the tester on Shimrit Tzur-David's golden sample. \
       This will produce a reference output that can be used to debug failed tests.
     - To run Golden tests: ```./target/debug/deps/assignment4_tester```
+    - The log files of the Golden tests are in ```assignment4-tester/golden_tests```
